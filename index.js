@@ -1,10 +1,7 @@
 var Helpers = require('./helpers')
 
-exports.helpers = function(mongoose) {
-  return new Helpers(mongoose)
-}
+module.exports = require('./helpers')
 
-exports.plugins = {}
-exports.plugins.timestamps = require('./plugins/timestamps')
-exports.plugins.filter = require('./plugins/filter')
-
+module.exports.plugins = {}
+module.exports.plugins.timestamps = require('./plugins/timestamps')
+module.exports.plugins.filter = require('./plugins/filter')

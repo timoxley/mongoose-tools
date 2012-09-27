@@ -1,15 +1,9 @@
 var assert = require('chai').assert
 var mongoose = require('mongoose')
+var ObjectId = mongoose.Types.ObjectId
 var async = require('async')
-
-var Helper = require('../../helpers/index')
-var helper = new Helper(mongoose)
-
+var helper = require('../../helpers')
 describe('helper', function() {
-  before(function(done) {
-    mongoose.connect('mongodb://localhost/mongoose-tools')
-    done()
-  })
   after(function(done) {
     helper.dropCollections(done)
   })

@@ -9,10 +9,7 @@ var _ = require('underscore')
 var Faker = require('Faker')
 var assert = require('assert')
 
-mongoose.connect('mongodb://localhost/mongoose-toolbox')
-
-var Helper = require('../../helpers/index')
-var helper = new Helper(mongoose)
+var helper = require('../../helpers')
 
 describe('filter plugin', function() {
   var DummyModel, dummySchema
@@ -20,7 +17,6 @@ describe('filter plugin', function() {
 
 
   before(function(done) {
-    mongoose.connect('mongodb://localhost/mongoose-toolbox')
     helper.dropCollections(done)
   })
   after(function(done) {

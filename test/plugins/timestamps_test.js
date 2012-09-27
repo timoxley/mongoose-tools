@@ -8,10 +8,7 @@ var useTimeStamps = require('../../plugins/timestamps')
 
 var assert = require('chai').assert
 
-var Helper = require('../../helpers/index')
-var helper = new Helper(mongoose)
-
-mongoose.connect('mongodb://localhost/mongoose-toolbox')
+var helper = require('../../helpers')
 
 var TimestampTestSchema = new Schema({name: String})
 TimestampTestSchema.plugin(useTimeStamps)
