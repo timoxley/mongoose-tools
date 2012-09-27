@@ -10,6 +10,7 @@ describe('module', function() {
     var mongooseHelpers = require('../index')
     assert.ok(mongooseHelpers)
     assert.ok(typeof mongooseHelpers.dropCollections === 'function')
+    assert.ok(typeof mongooseHelpers.isObjectId === 'function')
   })
   it('module exposes correct plugins', function() {
     var mongooseTools = require('../index')

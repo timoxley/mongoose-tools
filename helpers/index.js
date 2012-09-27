@@ -4,6 +4,7 @@ var async = require('async')
 var _ = require('underscore')
 
 var mongoose = require('mongoose')
+var ObjectId = mongoose.Types.ObjectId
 
 module.exports.dropCollections = function(callback) {
   var collections = _.keys(mongoose.connection.collections)
@@ -16,3 +17,18 @@ module.exports.dropCollections = function(callback) {
   }, callback)
 }
 
+module.exports.isObjectId = function(id) {
+  if (!id) return false
+  if (typeof id === 'object') {
+    id = id.toString()
+  }
+  if (typeof id === 'string') {
+    try {
+      new ObjectId(id)
+    } catch(e) {
+      return false
+    }
+    return true
+  }
+  return false
+}

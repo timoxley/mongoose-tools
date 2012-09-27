@@ -49,4 +49,21 @@ describe('helper', function() {
       })
     })
   })
+  describe('isObjectId', function() {
+    var isObjectId = helper.isObjectId
+    it('returns true for ObjectId Objects', function() {
+      assert.ok(isObjectId(new ObjectId()))
+    })
+    it('returns true for ObjectId Strings', function() {
+      assert.ok(isObjectId(new ObjectId().toString()))
+    })
+    it('returns false for other types', function() {
+      assert.ok(!isObjectId())
+      assert.ok(!isObjectId(''))
+      assert.ok(!isObjectId('sdfsdfsdf'))
+      assert.ok(!isObjectId(123123))
+      assert.ok(!isObjectId([]))
+      assert.ok(!isObjectId({}))
+    })
+  })
 })
